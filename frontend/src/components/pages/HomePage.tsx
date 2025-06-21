@@ -32,8 +32,27 @@ import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
 import { useDayShifts } from '@/hooks/useShifts'
 import { useStores } from '@/hooks/useStores'
-import { generateDateRange, translateErrorMessage } from '@/lib/utils'
 import type { FilterOptions } from '@/types/api'
+
+// ユーティリティ関数をローカルで定義
+const generateDateRange = (days: number): string[] => {
+  const dates: string[] = []
+  const today = new Date()
+  
+  for (let i = 0; i < days; i++) {
+    const date = new Date(today)
+    date.setDate(today.getDate() + i)
+    dates.push(date.toISOString().split('T')[0])
+  }
+  
+  return dates
+}
+
+const translateErrorMessage = (error: any): string => {
+  if (typeof error === 'string') return error
+  if (error?.message) return error.message
+  return 'エラーが発生しました'
+}
 
 /**
  * ホームページコンポーネント

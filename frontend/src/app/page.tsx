@@ -1,12 +1,20 @@
 /**
  * メインページ
- * ホームページコンポーネントをレンダリング
+ * デモページにリダイレクト
  */
 
 'use client'
 
-import { HomePage } from '@/components/pages/HomePage'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Page() {
-  return <HomePage />
+  const router = useRouter()
+  
+  useEffect(() => {
+    // デモページにリダイレクト
+    router.push('/demo')
+  }, [router])
+
+  return null
 }

@@ -22,7 +22,7 @@ import {
   InputLeftElement,
   Input
 } from '@chakra-ui/react'
-import { SearchIcon, RefreshCcw } from 'lucide-react'
+import { Search, RefreshCw } from 'lucide-react'
 
 import { MainLayout } from '@/components/templates/MainLayout'
 import { DateTabs } from '@/components/ui/DateTabs'
@@ -138,7 +138,7 @@ export const HomePage: React.FC = () => {
     <HStack spacing={2}>
       <InputGroup size="sm" maxW="200px">
         <InputLeftElement pointerEvents="none">
-          <SearchIcon size={16} />
+          <Search size={16} />
         </InputLeftElement>
         <Input
           placeholder="嬢名で検索..."
@@ -152,7 +152,7 @@ export const HomePage: React.FC = () => {
         variant="outline"
         onClick={() => refetch()}
         isLoading={isLoading}
-        leftIcon={<RefreshCcw size={16} />}
+        leftIcon={<RefreshCw size={16} />}
       >
         更新
       </Button>

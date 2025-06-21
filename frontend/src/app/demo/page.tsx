@@ -24,34 +24,34 @@ import {
 const demoStores = [
   {
     id: "maidreamin-akiba",
-    name: "めいどりーみん 秋葉原本店",
+    name: "めいどりーみん 秋葉原 本店",
     area: "秋葉原",
     girls_count: 12,
     url: "https://maidreamin.com/"
   },
   {
-    id: "hanagatami-akiba", 
-    name: "花魁茶屋 秋葉原店",
+    id: "athome-akiba", 
+    name: "あっとほぉーむカフェ",
     area: "秋葉原",
     girls_count: 8,
     url: "https://www.cafe-athome.com/"
   },
   {
     id: "cure-maid-akiba",
-    name: "CURE MAID CAFE",
+    name: "キュアメイドカフェ",
     area: "秋葉原", 
     girls_count: 15,
-    url: "https://curemaid.jp/"
+    url: "https://www.curemaid.jp/"
   }
 ]
 
 const demoGirls = [
-  { id: 1, name: "ゆめか", status: "active", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=4" },
-  { id: 2, name: "ひまり", status: "new", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=545" },
-  { id: 3, name: "あかね", status: "active", profileUrl: "https://www.cafe-athome.com/maid-detail/11" },
-  { id: 4, name: "みお", status: "active", profileUrl: "https://www.cafe-athome.com/maid-detail/12" },
-  { id: 5, name: "さくら", status: "new", profileUrl: "https://www.curemaid.jp/" },
-  { id: 6, name: "りん", status: "active", profileUrl: "https://www.curemaid.jp/" },
+  { id: 1, name: "まりる", status: "active", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=4", store: "めいどりーみん 秋葉原 アイドル通り店" },
+  { id: 2, name: "ちう", status: "new", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=545", store: "めいどりーみん" },
+  { id: 3, name: "みお", status: "active", profileUrl: "https://www.cafe-athome.com/", store: "あっとほぉーむカフェ" },
+  { id: 4, name: "ゆき", status: "active", profileUrl: "https://www.cafe-athome.com/", store: "あっとほぉーむカフェ" },
+  { id: 5, name: "さくら", status: "new", profileUrl: "https://www.curemaid.jp/", store: "キュアメイドカフェ" },
+  { id: 6, name: "あいか", status: "active", profileUrl: "https://www.curemaid.jp/", store: "キュアメイドカフェ" },
 ]
 
 export default function DemoPage() {
@@ -95,11 +95,11 @@ export default function DemoPage() {
         <VStack spacing={6} align="stretch">
           {/* 日付タブ風 */}
           <HStack spacing={2} overflowX="auto">
-            <Button colorScheme="pink" variant="solid" size="sm">今日</Button>
-            <Button variant="outline" size="sm">明日</Button>
-            <Button variant="outline" size="sm">6/23</Button>
+            <Button colorScheme="pink" variant="solid" size="sm">今日(6/22)</Button>
+            <Button variant="outline" size="sm">明日(6/23)</Button>
             <Button variant="outline" size="sm">6/24</Button>
             <Button variant="outline" size="sm">6/25</Button>
+            <Button variant="outline" size="sm">6/26</Button>
           </HStack>
 
           {/* ステータス */}

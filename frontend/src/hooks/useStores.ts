@@ -6,43 +6,55 @@
 import { useQuery } from '@tanstack/react-query'
 // Mock API for demo purposes (replaced @/lib/api)
 const storeApi = {
-  getAll: async () => {
+  getAll: async (): Promise<Store[]> => {
     // Mock data for demo
     return [
       {
         id: 'store1',
-        name: 'コンカフェ　ハート',
-        area: '東京',
-        address: '東京都渋谷区',
-        phone: '03-1234-5678',
-        is_active: true
+        name: 'めいどりーみん 秋葉原店',
+        area: '秋葉原',
+        open_time: '12:00',
+        close_time: '22:00',
+        url: 'https://www.maidramin.com/',
+        is_active: true,
+        girls_count: 8,
+        last_updated: new Date().toISOString()
       },
       {
         id: 'store2',
-        name: 'コンカフェ　スマイル',
-        area: '大阪',
-        address: '大阪市中央区',
-        phone: '06-1234-5678',
-        is_active: true
+        name: '@ほぉ〜むカフェ 本店',
+        area: '秋葉原',
+        open_time: '11:30',
+        close_time: '22:30',
+        url: 'https://www.cafe-athome.com/',
+        is_active: true,
+        girls_count: 12,
+        last_updated: new Date().toISOString()
       },
       {
         id: 'store3',
-        name: 'コンカフェ　ドリーム',
-        area: '神奈川',
-        address: '横浜市西区',
-        phone: '045-1234-5678',
-        is_active: true
+        name: 'Cafe Mai:lish',
+        area: '秋葉原',
+        open_time: '12:00',
+        close_time: '20:00',
+        url: 'https://maid-cafe.net/',
+        is_active: true,
+        girls_count: 6,
+        last_updated: new Date().toISOString()
       }
     ]
   },
-  getById: async (storeId: string) => {
+  getById: async (storeId: string): Promise<Store> => {
     return {
       id: storeId,
       name: 'デモ店舗',
-      area: '東京',
-      address: '東京都渋谷区',
-      phone: '03-1234-5678',
-      is_active: true
+      area: '秋葉原',
+      open_time: '12:00',
+      close_time: '22:00',
+      url: 'https://example.com/',
+      is_active: true,
+      girls_count: 5,
+      last_updated: new Date().toISOString()
     }
   }
 }

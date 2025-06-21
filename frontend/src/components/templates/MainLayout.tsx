@@ -55,8 +55,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   const router = useRouter()
   
   // レスポンシブ対応
-  const isMobile = useBreakpointValue({ base: true, lg: false })
-  const containerMaxW = useBreakpointValue({ base: 'full', xl: '7xl' })
+  const isMobile = useBreakpointValue({ base: true, lg: false }) ?? true
+  const containerMaxW = useBreakpointValue({ base: 'full', xl: '7xl' }) ?? 'full'
 
   return (
     <Box minH="100vh" bg="gray.50">
@@ -67,7 +67,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         onColorModeToggle={toggleColorMode}
         colorMode={colorMode}
         headerActions={headerActions}
-        showMenuButton={isMobile && !!sidebar}
+        showMenuButton={Boolean(isMobile && sidebar)}
       />
 
       <Container maxW={containerMaxW} px={{ base: 4, md: 6 }}>

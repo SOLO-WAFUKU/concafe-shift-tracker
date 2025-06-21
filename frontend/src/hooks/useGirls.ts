@@ -4,7 +4,6 @@
  */
 
 import { useQuery, useInfiniteQuery } from '@tanstack/react-query'
-import { generateDynamicAvatar } from '@/utils/imageUtils'
 // Mock API for demo purposes (replaced @/lib/api)
 const girlApi = {
   getAll: async (params?: any): Promise<Girl[]> => {
@@ -13,7 +12,7 @@ const girlApi = {
       {
         id: 1,
         name: 'アリス',
-        image_url: generateDynamicAvatar('アリス', undefined, 'active'),
+        image_url: 'https://images.unsplash.com/photo-1494790108755-74763652e067?w=400&h=500&fit=crop&crop=face',
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -22,7 +21,7 @@ const girlApi = {
       {
         id: 2,
         name: 'ベル',
-        image_url: generateDynamicAvatar('ベル', undefined, 'new'),
+        image_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face',
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -31,7 +30,7 @@ const girlApi = {
       {
         id: 3,
         name: 'シンデレラ',
-        image_url: generateDynamicAvatar('シンデレラ', undefined, 'active'),
+        image_url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face',
         status: 'active' as const,
         store_id: 'store2',
         first_seen: new Date().toISOString(),
@@ -43,7 +42,7 @@ const girlApi = {
     return {
       id: girlId,
       name: 'デモ嬢',
-      image_url: generateDynamicAvatar('デモ嬢', undefined, 'active'),
+      image_url: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=500&fit=crop&crop=face',
       status: 'active' as const,
       store_id: 'store1',
       first_seen: new Date().toISOString(),
@@ -80,7 +79,7 @@ const girlApi = {
       {
         id: 1,
         name: '検索結果',
-        image_url: generateDynamicAvatar('検索結果', undefined, 'active'),
+        image_url: 'https://images.unsplash.com/photo-1488426862026-3ee54cdd4f65?w=400&h=500&fit=crop&crop=face',
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -93,7 +92,7 @@ const girlApi = {
       {
         id: 4,
         name: '新人ちゃん',
-        image_url: generateDynamicAvatar('新人ちゃん', undefined, 'new'),
+        image_url: 'https://images.unsplash.com/photo-1552374196-1ab2c5c71d32?w=400&h=500&fit=crop&crop=face',
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),

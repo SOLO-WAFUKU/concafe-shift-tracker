@@ -4,7 +4,6 @@
  */
 
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { generateDynamicAvatar } from '@/utils/imageUtils'
 // Mock API for demo purposes (replaced @/lib/api)
 const shiftApi = {
   getByDate: async (date: string, storeId?: string) => {
@@ -21,7 +20,7 @@ const shiftApi = {
               id: 1,
               girl_id: 1,
               girl_name: 'みこち',
-              girl_image_url: generateDynamicAvatar('みこち', '18:00', 'active'),
+              girl_image_url: 'https://images.unsplash.com/photo-1494790108755-74763652e067?w=400&h=500&fit=crop&crop=face',
               start_time: '18:00',
               end_time: '22:00',
               shift_type: 'normal',
@@ -33,7 +32,7 @@ const shiftApi = {
               id: 2,
               girl_id: 2,
               girl_name: 'ぺこら',
-              girl_image_url: generateDynamicAvatar('ぺこら', '19:00', 'new'),
+              girl_image_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face',
               start_time: '19:00',
               end_time: '23:00',
               shift_type: 'special',
@@ -51,7 +50,7 @@ const shiftApi = {
               id: 3,
               girl_id: 3,
               girl_name: 'あくあ',
-              girl_image_url: generateDynamicAvatar('あくあ', '17:00', 'active'),
+              girl_image_url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face',
               start_time: '17:00',
               end_time: '21:00',
               shift_type: 'normal',
@@ -63,7 +62,7 @@ const shiftApi = {
               id: 4,
               girl_id: 4,
               girl_name: 'まりん',
-              girl_image_url: generateDynamicAvatar('まりん', '20:00', 'active'),
+              girl_image_url: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=500&fit=crop&crop=face',
               start_time: '20:00',
               end_time: '24:00',
               shift_type: 'normal',
@@ -81,7 +80,7 @@ const shiftApi = {
               id: 5,
               girl_id: 5,
               girl_name: 'のえる',
-              girl_image_url: generateDynamicAvatar('のえる', '16:00', 'active'),
+              girl_image_url: 'https://images.unsplash.com/photo-1488426862026-3ee54cdd4f65?w=400&h=500&fit=crop&crop=face',
               start_time: '16:00',
               end_time: '20:00',
               shift_type: 'normal',
@@ -93,7 +92,7 @@ const shiftApi = {
               id: 6,
               girl_id: 6,
               girl_name: 'ふぶき',
-              girl_image_url: generateDynamicAvatar('ふぶき', '21:00', 'active'),
+              girl_image_url: 'https://images.unsplash.com/photo-1552374196-1ab2c5c71d32?w=400&h=500&fit=crop&crop=face',
               start_time: '21:00',
               end_time: '25:00',
               shift_type: 'special',
@@ -123,7 +122,7 @@ const shiftApi = {
         store_id: storeId,
         girl_id: 1,
         girl_name: 'アリス',
-        girl_image_url: generateDynamicAvatar('アリス', '18:00', 'active'),
+        girl_image_url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=500&fit=crop&crop=face',
         date: dateStr,
         start_time: '18:00',
         end_time: '22:00',
@@ -159,7 +158,7 @@ const shiftApi = {
         store_id: 'store1',
         girl_id: 1,
         girl_name: '検索結果',
-        girl_image_url: generateDynamicAvatar('検索結果', '18:00', 'active'),
+        girl_image_url: 'https://images.unsplash.com/photo-1530577197762-1eb6b92c5414?w=400&h=500&fit=crop&crop=face',
         date: '2024-01-15',
         start_time: '18:00',
         end_time: '22:00',

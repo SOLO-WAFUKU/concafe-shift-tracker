@@ -179,7 +179,7 @@ export const GirlCard: React.FC<GirlCardProps> = ({
             w="full"
             h={compact ? "160px" : "200px"}
             objectFit="cover"
-            onError={(e) => {
+            onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               console.log('Image failed to load:', girl.image_url);
               const target = e.target as HTMLImageElement;
               target.src = 'https://via.placeholder.com/400x500/ff69b4/ffffff?text=' + encodeURIComponent(girl.name);
@@ -318,7 +318,7 @@ const GirlDetailModal: React.FC<{
                   h="120px"
                   objectFit="cover"
                   borderRadius="md"
-                  onError={(e) => {
+                  onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                     const target = e.target as HTMLImageElement;
                     target.src = 'https://via.placeholder.com/150x180/f0f0f0/666666?text=No+Image';
                   }}
@@ -413,7 +413,7 @@ export const SimpleGirlCard: React.FC<{
         h="50px"
         objectFit="cover"
         borderRadius="sm"
-        onError={(e) => {
+        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
           const target = e.target as HTMLImageElement;
           target.src = 'https://via.placeholder.com/60x75/f0f0f0/666666?text=?';
         }}

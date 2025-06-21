@@ -26,9 +26,12 @@ import {
   Tooltip
 } from '@chakra-ui/react'
 import { Clock, Calendar, Star } from 'lucide-react'
+import { getImageUrl } from '@/utils/imageUtils'
 // Local utility functions (replaced @/lib/utils)
 const optimizeImageUrl = (url?: string, width?: number) => {
   if (!url) return 'https://via.placeholder.com/400x500/f0f0f0/666666?text=No+Image'
+  // If it's already a data URI, return as-is
+  if (url.startsWith('data:')) return url
   // In a real app, this would optimize the image URL
   return url
 }
@@ -174,7 +177,7 @@ export const GirlCard: React.FC<GirlCardProps> = ({
         <Box position="relative">
           <Box
             as="img"
-            src={optimizeImageUrl(girl.image_url, compact ? 200 : 280)}
+            src={getImageUrl(girl.image_url, girl.name, shift?.start_time, girl.status)}
             alt={girl.name}
             w="full"
             h={compact ? "160px" : "200px"}
@@ -182,7 +185,7 @@ export const GirlCard: React.FC<GirlCardProps> = ({
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               console.log('Image failed to load:', girl.image_url);
               const target = e.target as HTMLImageElement;
-              target.src = 'https://via.placeholder.com/400x500/ff69b4/ffffff?text=' + encodeURIComponent(girl.name);
+              target.src = getImageUrl(undefined, girl.name, shift?.start_time, girl.status);
             }}
             onLoad={() => {
               console.log('Image loaded successfully:', girl.image_url);

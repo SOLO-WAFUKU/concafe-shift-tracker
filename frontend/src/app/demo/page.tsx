@@ -46,12 +46,12 @@ const demoStores = [
 ]
 
 const demoGirls = [
-  { id: 1, name: "ゆめか", status: "active", profileUrl: "https://maidreamin.com/cast/detail/?id=yumeka" },
-  { id: 2, name: "ひまり", status: "new", profileUrl: "https://maidreamin.com/cast/detail/?id=himari" },
-  { id: 3, name: "あかね", status: "active", profileUrl: "https://www.cafe-athome.com/cast/akane" },
-  { id: 4, name: "みお", status: "active", profileUrl: "https://www.cafe-athome.com/cast/mio" },
-  { id: 5, name: "さくら", status: "new", profileUrl: "https://curemaid.jp/profile/sakura" },
-  { id: 6, name: "りん", status: "active", profileUrl: "https://curemaid.jp/profile/rin" },
+  { id: 1, name: "ゆめか", status: "active", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=1234" },
+  { id: 2, name: "ひまり", status: "new", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=5678" },
+  { id: 3, name: "あかね", status: "active", profileUrl: "https://www.cafe-athome.com/" },
+  { id: 4, name: "みお", status: "active", profileUrl: "https://www.cafe-athome.com/" },
+  { id: 5, name: "さくら", status: "new", profileUrl: "https://www.curemaid.jp/" },
+  { id: 6, name: "りん", status: "active", profileUrl: "https://www.curemaid.jp/" },
 ]
 
 export default function DemoPage() {

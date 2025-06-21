@@ -43,12 +43,12 @@ const demoStores = [
 ]
 
 const demoGirls = [
-  { id: 1, name: "ゆめか", status: "active", image: "https://via.placeholder.com/200x250/FF69B4/FFFFFF?text=ゆめか" },
-  { id: 2, name: "ひまり", status: "new", image: "https://via.placeholder.com/200x250/FFB6C1/FFFFFF?text=ひまり" },
-  { id: 3, name: "あかね", status: "active", image: "https://via.placeholder.com/200x250/FF69B4/FFFFFF?text=あかね" },
-  { id: 4, name: "みお", status: "active", image: "https://via.placeholder.com/200x250/FF69B4/FFFFFF?text=みお" },
-  { id: 5, name: "さくら", status: "new", image: "https://via.placeholder.com/200x250/FFB6C1/FFFFFF?text=さくら" },
-  { id: 6, name: "りん", status: "active", image: "https://via.placeholder.com/200x250/FF69B4/FFFFFF?text=りん" },
+  { id: 1, name: "ゆめか", status: "active" },
+  { id: 2, name: "ひまり", status: "new" },
+  { id: 3, name: "あかね", status: "active" },
+  { id: 4, name: "みお", status: "active" },
+  { id: 5, name: "さくら", status: "new" },
+  { id: 6, name: "りん", status: "active" },
 ]
 
 export default function DemoPage() {
@@ -146,16 +146,25 @@ export default function DemoPage() {
                     </Badge>
                   )}
 
-                  {/* 画像 */}
-                  <Box position="relative">
-                    <Image
-                      src={girl.image}
-                      alt={girl.name}
-                      w="full"
-                      h="200px"
-                      objectFit="cover"
-                    />
-                    {/* グラデーション オーバーレイ */}
+                  {/* グラデーション背景 + 絵文字 */}
+                  <Box
+                    w="full"
+                    h="200px"
+                    bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                    position="relative"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <VStack spacing={2}>
+                      <Text fontSize="4xl" color="white">
+                        👩‍💼
+                      </Text>
+                      <Text fontSize="lg" color="white" fontWeight="bold">
+                        {girl.name}
+                      </Text>
+                    </VStack>
+                    
                     <Box
                       position="absolute"
                       bottom={0}

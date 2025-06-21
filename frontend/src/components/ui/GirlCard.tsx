@@ -4,9 +4,9 @@
  */
 
 import React from 'react'
+import Image from 'next/image'
 import {
   Box,
-  Image,
   Text,
   VStack,
   HStack,
@@ -174,26 +174,26 @@ export const GirlCard: React.FC<GirlCardProps> = ({
         )}
 
         {/* 画像部分 */}
-        <Box position="relative">
-          <Box
-            as="img"
+        <Box position="relative" w="full" h={compact ? "160px" : "200px"}>
+          <Image
             src={getImageUrl(girl.image_url, girl.name, shift?.start_time, girl.status)}
             alt={girl.name}
-            w="full"
-            h={compact ? "160px" : "200px"}
-            objectFit="cover"
+            fill
+            style={{ 
+              objectFit: 'cover',
+              backgroundColor: '#f0f0f0',
+              border: '1px solid #ddd'
+            }}
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               console.log('Image failed to load:', girl.image_url);
               const target = e.target as HTMLImageElement;
-              target.src = getImageUrl(undefined, girl.name, shift?.start_time, girl.status);
+              target.src = `https://via.placeholder.com/400x500/ff69b4/ffffff?text=${encodeURIComponent(girl.name)}`;
             }}
             onLoad={() => {
               console.log('Image loaded successfully:', girl.image_url);
             }}
-            style={{
-              backgroundColor: '#f0f0f0',
-              border: '1px solid #ddd'
-            }}
+            unoptimized
+            priority
           />
           
           {/* グラデーション オーバーレイ */}
@@ -313,19 +313,19 @@ const GirlDetailModal: React.FC<{
             <VStack spacing={4} align="stretch">
               {/* 基本情報 */}
               <HStack spacing={4}>
-                <Box
-                  as="img"
-                  src={optimizeImageUrl(girlDetail.image_url, 150)}
-                  alt={girlDetail.name}
-                  w="100px"
-                  h="120px"
-                  objectFit="cover"
-                  borderRadius="md"
-                  onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = 'https://via.placeholder.com/150x180/f0f0f0/666666?text=No+Image';
-                  }}
-                />
+                <Box position="relative" w="100px" h="120px" borderRadius="md" overflow="hidden">
+                  <Image
+                    src={optimizeImageUrl(girlDetail.image_url, 150)}
+                    alt={girlDetail.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://via.placeholder.com/150x180/f0f0f0/666666?text=No+Image';
+                    }}
+                    unoptimized
+                  />
+                </Box>
                 <VStack align="start" spacing={2}>
                   <HStack>
                     <Text fontSize="lg" fontWeight="bold">
@@ -408,19 +408,19 @@ export const SimpleGirlCard: React.FC<{
 
   return (
     <HStack spacing={3} p={3} bg="white" borderRadius="md" shadow="sm">
-      <Box
-        as="img"
-        src={optimizeImageUrl(girl.image_url, 60)}
-        alt={girl.name}
-        w="40px"
-        h="50px"
-        objectFit="cover"
-        borderRadius="sm"
-        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-          const target = e.target as HTMLImageElement;
-          target.src = 'https://via.placeholder.com/60x75/f0f0f0/666666?text=?';
-        }}
-      />
+      <Box position="relative" w="40px" h="50px" borderRadius="sm" overflow="hidden">
+        <Image
+          src={optimizeImageUrl(girl.image_url, 60)}
+          alt={girl.name}
+          fill
+          style={{ objectFit: 'cover' }}
+          onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+            const target = e.target as HTMLImageElement;
+            target.src = 'https://via.placeholder.com/60x75/f0f0f0/666666?text=?';
+          }}
+          unoptimized
+        />
+      </Box>
       <VStack align="start" spacing={1} flex={1}>
         <HStack>
           <Text fontSize="sm" fontWeight="medium">

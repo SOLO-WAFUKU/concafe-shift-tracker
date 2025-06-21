@@ -4,15 +4,25 @@ const nextConfig = {
   images: {
     domains: [
       'localhost',
-      'imagedelivery.net', // Cloudflare Images
-      'images.unsplash.com', // Unsplash images for demo
-      'picsum.photos', // Lorem Picsum for demo
-      'via.placeholder.com', // Placeholder images
+      'imagedelivery.net',
+      'images.unsplash.com',
+      'picsum.photos',
+      'via.placeholder.com',
+      'i.pravatar.cc', // Pravatar AI portraits
+      'thispersondoesnotexist.com', // AI generated faces
+      'api.dicebear.com', // DiceBear avatars
+      'robohash.org', // Robohash avatars
       'maidreamin.com',
       'hanagatami.jp',
       'curemaid.jp'
     ],
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      }
+    ]
   },
   async rewrites() {
     return [

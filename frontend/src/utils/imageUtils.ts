@@ -218,6 +218,19 @@ const getUnsplashPhotoId = (id: number): string => {
 }
 
 /**
+ * 画像プロキシ経由でURLを取得
+ */
+const getProxiedImageUrl = (url: string): string => {
+  // 既にプロキシ済みまたはローカルURLの場合はそのまま
+  if (url.includes('/api/image-proxy') || url.startsWith('/') || url.includes('localhost')) {
+    return url
+  }
+  
+  // 外部URLの場合はプロキシ経由で取得
+  return `/api/image-proxy?url=${encodeURIComponent(url)}`
+}
+
+/**
  * 外部画像の代替として使用する関数
  */
 export const getImageUrl = (
@@ -226,15 +239,16 @@ export const getImageUrl = (
   time?: string,
   status?: 'active' | 'new' | 'left'
 ): string => {
-  // 元のURLが有効な場合はそれを使用
+  // 元のURLが有効な場合はプロキシ経由で使用
   if (originalUrl && !originalUrl.includes('placeholder') && !originalUrl.includes('picsum') && !originalUrl.startsWith('data:')) {
-    return originalUrl
+    return getProxiedImageUrl(originalUrl)
   }
   
-  // 高品質AI生成画像を取得
+  // 高品質AI生成画像を取得（プロキシ経由）
   if (fallbackName && fallbackName !== '？' && fallbackName !== 'No Image') {
     try {
-      return getHighQualityAIPortrait(fallbackName)
+      const aiImageUrl = getHighQualityAIPortrait(fallbackName)
+      return getProxiedImageUrl(aiImageUrl)
     } catch (error) {
       console.warn('Failed to get AI portrait, falling back to generated avatar')
     }

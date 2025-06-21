@@ -133,26 +133,71 @@ function shadeColor(color: string, percent: number): string {
 }
 
 /**
- * リアルな人物画像を取得する関数
+ * 高品質AI生成ポートレート画像を取得する関数
  */
-const getRealisticPortrait = (seed: string, gender: 'female' | 'male' = 'female'): string => {
-  // This Person Does Not Exist API (AIが生成したリアルな人物画像)
-  // ※これらの人物は実在しません
-  const baseUrls = [
-    'https://thispersondoesnotexist.com/', // ランダム画像
-    'https://generated.photos/api/v1/faces', // Generated Photos API (要API key)
-    'https://randomuser.me/api/portraits' // Random User API
-  ]
-  
+const getAIGeneratedPortrait = (seed: string, style: 'cute' | 'elegant' | 'casual' = 'cute'): string => {
   // seedから一意のIDを生成
   let hash = 0
   for (let i = 0; i < seed.length; i++) {
     hash = ((hash << 5) - hash + seed.charCodeAt(i)) & 0xffffffff
   }
-  const uniqueId = Math.abs(hash) % 100
+  const uniqueId = Math.abs(hash) % 50
   
-  // 商用利用可能な人物画像サービス
-  return `https://images.unsplash.com/photo-${getUnsplashPhotoId(uniqueId)}?w=400&h=500&fit=crop&crop=face`
+  // フリーのAI生成画像サービス
+  // Generated.photos - 商用利用可能なAI生成人物画像
+  const styles = {
+    cute: 'young-adult', // 可愛い系
+    elegant: 'adult', // エレガント系
+    casual: 'young-adult' // カジュアル系
+  }
+  
+  // This Person Does Not Exist 風の高品質AI画像
+  // Pravatar - フリーのアバター画像サービス
+  return `https://i.pravatar.cc/400?img=${uniqueId}&gender=female`
+}
+
+/**
+ * カフェ風AI生成画像を取得
+ */
+const getCafeStyleAIPortrait = (seed: string): string => {
+  let hash = 0
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash + seed.charCodeAt(i)) & 0xffffffff
+  }
+  const uniqueId = Math.abs(hash) % 30
+  
+  // DiceBear API - フリーのアバター生成サービス
+  // 可愛いアニメ風のアバターを生成
+  return `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&size=400&backgroundColor=ffeaa7,fab1a0,fd79a8,e17055,00b894&hair=longHairBigHair,longHairBob,longHairCurly,longHairStraight&top=shirt,graphicShirt,hoodie&facialHairProbability=0`
+}
+
+/**
+ * Robohash風のユニークな画像生成
+ */
+const getRobohashStylePortrait = (seed: string): string => {
+  // Robohash - ユニークなアバター生成
+  return `https://robohash.org/${seed}.png?set=set5&size=400x500`
+}
+
+/**
+ * 高品質なAI生成ポートレート取得
+ */
+const getHighQualityAIPortrait = (seed: string): string => {
+  let hash = 0
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash + seed.charCodeAt(i)) & 0xffffffff
+  }
+  
+  // 複数のAI画像サービスからランダム選択
+  const services = [
+    () => getAIGeneratedPortrait(seed, 'cute'),
+    () => `https://thispersondoesnotexist.com/`, // ランダムAI生成人物
+    () => `https://picsum.photos/seed/${seed}/400/500`, // 高品質な風景・人物写真
+    () => getCafeStyleAIPortrait(seed)
+  ]
+  
+  const serviceIndex = Math.abs(hash) % services.length
+  return services[serviceIndex]()
 }
 
 /**
@@ -186,12 +231,12 @@ export const getImageUrl = (
     return originalUrl
   }
   
-  // リアルな人物画像を取得
+  // 高品質AI生成画像を取得
   if (fallbackName && fallbackName !== '？' && fallbackName !== 'No Image') {
     try {
-      return getRealisticPortrait(fallbackName, 'female')
+      return getHighQualityAIPortrait(fallbackName)
     } catch (error) {
-      console.warn('Failed to get realistic portrait, falling back to generated avatar')
+      console.warn('Failed to get AI portrait, falling back to generated avatar')
     }
   }
   

@@ -105,44 +105,65 @@ const shiftApi = {
       ]
     }
   },
-  getStoreShifts: async (storeId: string, days: number = 7, startDate?: string) => {
-    return {
-      store_id: storeId,
-      store_name: 'デモ店舗',
-      days_data: Array.from({ length: days }, (_, i) => {
-        const date = new Date()
-        date.setDate(date.getDate() + i)
-        return {
-          date: date.toISOString().split('T')[0],
-          shifts: [
-            {
-              id: i + 1,
-              girl_id: 1,
-              girl_name: 'アリス',
-              start_time: '18:00',
-              end_time: '22:00',
-              shift_type: 'normal' as const,
-              notes: '',
-              store_id: storeId,
-              date: date.toISOString().split('T')[0]
-            }
-          ]
-        }
+  getStoreShifts: async (storeId: string, days: number = 7, startDate?: string): Promise<StoreShiftsDetail> => {
+    const today = startDate ? new Date(startDate) : new Date()
+    const endDate = new Date(today)
+    endDate.setDate(today.getDate() + days - 1)
+    
+    // Generate all shifts for the date range
+    const allShifts: Shift[] = []
+    for (let i = 0; i < days; i++) {
+      const date = new Date(today)
+      date.setDate(today.getDate() + i)
+      const dateStr = date.toISOString().split('T')[0]
+      
+      allShifts.push({
+        id: i + 1,
+        store_id: storeId,
+        girl_id: 1,
+        girl_name: 'アリス',
+        girl_image_url: '/images/demo-girl-1.jpg',
+        date: dateStr,
+        start_time: '18:00',
+        end_time: '22:00',
+        shift_type: 'normal',
+        notes: ''
       })
     }
+    
+    return {
+      store: {
+        id: storeId,
+        name: 'デモ店舗',
+        area: '秋葉原',
+        open_time: '12:00',
+        close_time: '22:00',
+        url: 'https://example.com/',
+        is_active: true,
+        girls_count: 5,
+        last_updated: new Date().toISOString()
+      },
+      shifts: allShifts,
+      date_range: {
+        start_date: today.toISOString().split('T')[0],
+        end_date: endDate.toISOString().split('T')[0],
+        days
+      }
+    }
   },
-  search: async (params: any) => {
+  search: async (params: any): Promise<Shift[]> => {
     return [
       {
         id: 1,
+        store_id: 'store1',
         girl_id: 1,
         girl_name: '検索結果',
+        girl_image_url: '/images/demo-girl-1.jpg',
+        date: '2024-01-15',
         start_time: '18:00',
         end_time: '22:00',
-        shift_type: 'normal' as const,
-        notes: '',
-        store_id: 'store1',
-        date: '2024-01-15'
+        shift_type: 'normal',
+        notes: ''
       }
     ]
   }

@@ -12,7 +12,7 @@ const girlApi = {
       {
         id: 1,
         name: 'アリス',
-        image_url: 'https://picsum.photos/400/500?random=11',
+        image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ff69b4"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">アリス</text></svg>`),
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -21,7 +21,7 @@ const girlApi = {
       {
         id: 2,
         name: 'ベル',
-        image_url: 'https://picsum.photos/400/500?random=12',
+        image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#9370db"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">ベル</text></svg>`),
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -30,7 +30,7 @@ const girlApi = {
       {
         id: 3,
         name: 'シンデレラ',
-        image_url: 'https://picsum.photos/400/500?random=13',
+        image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ff1493"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">シンデレラ</text></svg>`),
         status: 'active' as const,
         store_id: 'store2',
         first_seen: new Date().toISOString(),
@@ -42,7 +42,7 @@ const girlApi = {
     return {
       id: girlId,
       name: 'デモ嬢',
-      image_url: 'https://picsum.photos/400/500?random=14',
+      image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#00bfff"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">デモ嬢</text></svg>`),
       status: 'active' as const,
       store_id: 'store1',
       first_seen: new Date().toISOString(),
@@ -79,7 +79,7 @@ const girlApi = {
       {
         id: 1,
         name: '検索結果',
-        image_url: 'https://picsum.photos/400/500?random=15',
+        image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#32cd32"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">検索結果</text></svg>`),
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -92,7 +92,7 @@ const girlApi = {
       {
         id: 4,
         name: '新人ちゃん',
-        image_url: 'https://picsum.photos/400/500?random=16',
+        image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ffa500"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">新人ちゃん</text></svg>`),
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),

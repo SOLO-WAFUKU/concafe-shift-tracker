@@ -20,13 +20,7 @@ const shiftApi = {
               id: 1,
               girl_id: 1,
               girl_name: 'みこち',
-              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
-  <rect width="400" height="500" fill="#ff69b4"/>
-  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
-  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">みこち</text>
-  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">19:00-22:00</text>
-</svg>`),
+              girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ff69b4"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">みこち</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">18:00-22:00</text></svg>`),
               start_time: '18:00',
               end_time: '22:00',
               shift_type: 'normal',
@@ -38,13 +32,7 @@ const shiftApi = {
               id: 2,
               girl_id: 2,
               girl_name: 'ぺこら',
-              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
-  <rect width="400" height="500" fill="#ff1493"/>
-  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
-  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">ぺこら</text>
-  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">19:00-23:00</text>
-</svg>`),
+              girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ff1493"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">ぺこら</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">19:00-23:00</text></svg>`),
               start_time: '19:00',
               end_time: '23:00',
               shift_type: 'special',
@@ -62,13 +50,7 @@ const shiftApi = {
               id: 3,
               girl_id: 3,
               girl_name: 'あくあ',
-              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
-  <rect width="400" height="500" fill="#00bfff"/>
-  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
-  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">あくあ</text>
-  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">17:00-21:00</text>
-</svg>`),
+              girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#00bfff"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">あくあ</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">17:00-21:00</text></svg>`),
               start_time: '17:00',
               end_time: '21:00',
               shift_type: 'normal',
@@ -80,13 +62,7 @@ const shiftApi = {
               id: 4,
               girl_id: 4,
               girl_name: 'まりん',
-              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
-  <rect width="400" height="500" fill="#ffa500"/>
-  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
-  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">まりん</text>
-  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">20:00-24:00</text>
-</svg>`),
+              girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ffa500"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">まりん</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">20:00-24:00</text></svg>`),
               start_time: '20:00',
               end_time: '24:00',
               shift_type: 'normal',
@@ -104,7 +80,7 @@ const shiftApi = {
               id: 5,
               girl_id: 5,
               girl_name: 'のえる',
-              girl_image_url: 'https://picsum.photos/400/500?random=5',
+              girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#9370db"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">のえる</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">16:00-20:00</text></svg>`),
               start_time: '16:00',
               end_time: '20:00',
               shift_type: 'normal',
@@ -116,7 +92,7 @@ const shiftApi = {
               id: 6,
               girl_id: 6,
               girl_name: 'ふぶき',
-              girl_image_url: 'https://picsum.photos/400/500?random=6',
+              girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#87ceeb"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">ふぶき</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">21:00-25:00</text></svg>`),
               start_time: '21:00',
               end_time: '25:00',
               shift_type: 'special',
@@ -146,7 +122,7 @@ const shiftApi = {
         store_id: storeId,
         girl_id: 1,
         girl_name: 'アリス',
-        girl_image_url: 'https://picsum.photos/400/500?random=7',
+        girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#ff6347"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">アリス</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">18:00-22:00</text></svg>`),
         date: dateStr,
         start_time: '18:00',
         end_time: '22:00',
@@ -182,7 +158,7 @@ const shiftApi = {
         store_id: 'store1',
         girl_id: 1,
         girl_name: '検索結果',
-        girl_image_url: 'https://picsum.photos/400/500?random=8',
+        girl_image_url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#32cd32"/><circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/><text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">検索結果</text><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">18:00-22:00</text></svg>`),
         date: '2024-01-15',
         start_time: '18:00',
         end_time: '22:00',

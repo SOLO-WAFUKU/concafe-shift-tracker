@@ -179,10 +179,17 @@ export const GirlCard: React.FC<GirlCardProps> = ({
             w="full"
             h={compact ? "160px" : "200px"}
             objectFit="cover"
-            loading="lazy"
             onError={(e) => {
+              console.log('Image failed to load:', girl.image_url);
               const target = e.target as HTMLImageElement;
-              target.src = 'https://via.placeholder.com/400x500/f0f0f0/666666?text=No+Image';
+              target.src = 'https://via.placeholder.com/400x500/ff69b4/ffffff?text=' + encodeURIComponent(girl.name);
+            }}
+            onLoad={() => {
+              console.log('Image loaded successfully:', girl.image_url);
+            }}
+            style={{
+              backgroundColor: '#f0f0f0',
+              border: '1px solid #ddd'
             }}
           />
           

@@ -6,6 +6,8 @@ const nextConfig = {
       'localhost',
       'imagedelivery.net', // Cloudflare Images
       'images.unsplash.com', // Unsplash images for demo
+      'picsum.photos', // Lorem Picsum for demo
+      'via.placeholder.com', // Placeholder images
       'maidreamin.com',
       'hanagatami.jp',
       'curemaid.jp'

@@ -12,7 +12,7 @@ const girlApi = {
       {
         id: 1,
         name: 'アリス',
-        image_url: 'https://via.placeholder.com/400x500/ff69b4/ffffff?text=アリス',
+        image_url: 'https://picsum.photos/400/500?random=11',
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -21,7 +21,7 @@ const girlApi = {
       {
         id: 2,
         name: 'ベル',
-        image_url: 'https://via.placeholder.com/400x500/ff1493/ffffff?text=ベル',
+        image_url: 'https://picsum.photos/400/500?random=12',
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -30,7 +30,7 @@ const girlApi = {
       {
         id: 3,
         name: 'シンデレラ',
-        image_url: 'https://via.placeholder.com/400x500/ffd700/ffffff?text=シンデレラ',
+        image_url: 'https://picsum.photos/400/500?random=13',
         status: 'active' as const,
         store_id: 'store2',
         first_seen: new Date().toISOString(),
@@ -42,7 +42,7 @@ const girlApi = {
     return {
       id: girlId,
       name: 'デモ嬢',
-      image_url: 'https://via.placeholder.com/400x500/98fb98/ffffff?text=デモ嬢',
+      image_url: 'https://picsum.photos/400/500?random=14',
       status: 'active' as const,
       store_id: 'store1',
       first_seen: new Date().toISOString(),
@@ -79,7 +79,7 @@ const girlApi = {
       {
         id: 1,
         name: '検索結果',
-        image_url: 'https://via.placeholder.com/400x500/87ceeb/ffffff?text=検索',
+        image_url: 'https://picsum.photos/400/500?random=15',
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -92,7 +92,7 @@ const girlApi = {
       {
         id: 4,
         name: '新人ちゃん',
-        image_url: 'https://via.placeholder.com/400x500/ffc0cb/ffffff?text=NEW',
+        image_url: 'https://picsum.photos/400/500?random=16',
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),

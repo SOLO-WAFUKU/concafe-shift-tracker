@@ -4,7 +4,48 @@
  */
 
 import { useQuery } from '@tanstack/react-query'
-import { storeApi } from '@/lib/api'
+// Mock API for demo purposes (replaced @/lib/api)
+const storeApi = {
+  getAll: async () => {
+    // Mock data for demo
+    return [
+      {
+        id: 'store1',
+        name: 'コンカフェ　ハート',
+        area: '東京',
+        address: '東京都渋谷区',
+        phone: '03-1234-5678',
+        is_active: true
+      },
+      {
+        id: 'store2',
+        name: 'コンカフェ　スマイル',
+        area: '大阪',
+        address: '大阪市中央区',
+        phone: '06-1234-5678',
+        is_active: true
+      },
+      {
+        id: 'store3',
+        name: 'コンカフェ　ドリーム',
+        area: '神奈川',
+        address: '横浜市西区',
+        phone: '045-1234-5678',
+        is_active: true
+      }
+    ]
+  },
+  getById: async (storeId: string) => {
+    return {
+      id: storeId,
+      name: 'デモ店舗',
+      area: '東京',
+      address: '東京都渋谷区',
+      phone: '03-1234-5678',
+      is_active: true
+    }
+  }
+}
 import type { Store } from '@/types/api'
 
 /**

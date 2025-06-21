@@ -4,7 +4,73 @@
  */
 
 import { useQuery, useInfiniteQuery } from '@tanstack/react-query'
-import { girlApi } from '@/lib/api'
+// Mock API for demo purposes (replaced @/lib/api)
+const girlApi = {
+  getAll: async (params?: any) => {
+    // Mock data for demo
+    return [
+      {
+        id: 1,
+        name: 'アリス',
+        image_url: '/images/placeholder-girl.jpg',
+        status: 'active' as const,
+        store_id: 'store1'
+      },
+      {
+        id: 2,
+        name: 'ベル',
+        image_url: '/images/placeholder-girl.jpg',
+        status: 'new' as const,
+        store_id: 'store1'
+      },
+      {
+        id: 3,
+        name: 'シンデレラ',
+        image_url: '/images/placeholder-girl.jpg',
+        status: 'active' as const,
+        store_id: 'store2'
+      }
+    ]
+  },
+  getDetail: async (girlId: number) => {
+    return {
+      id: girlId,
+      name: 'デモ嬢',
+      image_url: '/images/placeholder-girl.jpg',
+      status: 'active' as const,
+      store_id: 'store1',
+      work_days_count: 15,
+      favorite_time_slots: ['夜間', '午後'],
+      recent_shifts: [
+        { id: 1, date: '2024-01-15', start_time: '18:00', end_time: '22:00' },
+        { id: 2, date: '2024-01-14', start_time: '19:00', end_time: '23:00' }
+      ]
+    }
+  },
+  search: async (params: any) => {
+    // Return filtered mock data
+    return [
+      {
+        id: 1,
+        name: '検索結果',
+        image_url: '/images/placeholder-girl.jpg',
+        status: 'active' as const,
+        store_id: 'store1'
+      }
+    ]
+  },
+  getNewToday: async () => {
+    return [
+      {
+        id: 4,
+        name: '新人ちゃん',
+        image_url: '/images/placeholder-girl.jpg',
+        status: 'new' as const,
+        store_id: 'store1'
+      }
+    ]
+  }
+}
 import type { Girl, GirlDetail } from '@/types/api'
 
 /**

@@ -26,15 +26,70 @@ import {
   Tooltip
 } from '@chakra-ui/react'
 import { TimeIcon, CalendarIcon, StarIcon } from '@chakra-ui/icons'
-import { 
-  optimizeImageUrl, 
-  getStatusColor, 
-  getStatusLabel, 
-  formatTime,
-  getTimeSlotColor,
-  getTimeSlot
-} from '@/lib/utils'
-import { useGirlDetail } from '@/hooks/useGirls'
+// Local utility functions (replaced @/lib/utils)
+const optimizeImageUrl = (url?: string, width?: number) => {
+  if (!url) return '/images/placeholder-girl.jpg'
+  // In a real app, this would optimize the image URL
+  return url
+}
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'active': return 'green'
+    case 'new': return 'blue'
+    case 'left': return 'gray'
+    default: return 'gray'
+  }
+}
+
+const getStatusLabel = (status: string) => {
+  switch (status) {
+    case 'active': return '在籍中'
+    case 'new': return '新人'
+    case 'left': return '卒業'
+    default: return status
+  }
+}
+
+const formatTime = (time: string) => {
+  // Format time string (e.g., "14:30" -> "14:30")
+  return time || ''
+}
+
+const getTimeSlotColor = (timeSlot: string) => {
+  switch (timeSlot) {
+    case '午前': return 'yellow'
+    case '午後': return 'orange'
+    case '夜間': return 'purple'
+    default: return 'gray'
+  }
+}
+
+const getTimeSlot = (time: string) => {
+  if (!time) return '不明'
+  const hour = parseInt(time.split(':')[0])
+  if (hour < 12) return '午前'
+  if (hour < 17) return '午後'
+  return '夜間'
+}
+// Mock hook for demo purposes (replaced useGirlDetail)
+const useGirlDetail = (girlId: number) => {
+  return {
+    data: {
+      id: girlId,
+      name: 'デモ嬢',
+      image_url: '/images/placeholder-girl.jpg',
+      status: 'active' as const,
+      work_days_count: 15,
+      favorite_time_slots: ['夜間', '午後'],
+      recent_shifts: [
+        { id: 1, date: '2024-01-15', start_time: '18:00', end_time: '22:00' },
+        { id: 2, date: '2024-01-14', start_time: '19:00', end_time: '23:00' }
+      ]
+    },
+    isLoading: false
+  }
+}
 import type { Shift } from '@/types/api'
 
 interface GirlCardProps {

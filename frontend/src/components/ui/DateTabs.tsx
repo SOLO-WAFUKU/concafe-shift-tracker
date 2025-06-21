@@ -15,7 +15,36 @@ import {
   Icon
 } from '@chakra-ui/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { getDateLabel, generateDateRange } from '@/lib/utils'
+// Local utility functions (replaced @/lib/utils)
+const getDateLabel = (date: string) => {
+  const today = new Date()
+  const targetDate = new Date(date)
+  const diffTime = targetDate.getTime() - today.getTime()
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  
+  if (diffDays === 0) return '今日'
+  if (diffDays === 1) return '明日'
+  if (diffDays === -1) return '昨日'
+  
+  // Format as MM/DD (曜日)
+  const month = targetDate.getMonth() + 1
+  const day = targetDate.getDate()
+  const weekday = ['日', '月', '火', '水', '木', '金', '土'][targetDate.getDay()]
+  return `${month}/${day}(${weekday})`
+}
+
+const generateDateRange = (days: number) => {
+  const dates = []
+  const today = new Date()
+  
+  for (let i = 0; i < days; i++) {
+    const date = new Date(today)
+    date.setDate(today.getDate() + i)
+    dates.push(date.toISOString().split('T')[0])
+  }
+  
+  return dates
+}
 
 interface DateTabsProps {
   /** 選択中の日付 */

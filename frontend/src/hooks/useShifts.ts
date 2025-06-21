@@ -4,7 +4,86 @@
  */
 
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { shiftApi } from '@/lib/api'
+// Mock API for demo purposes (replaced @/lib/api)
+const shiftApi = {
+  getByDate: async (date: string, storeId?: string) => {
+    // Mock data for demo
+    return {
+      date,
+      store_shifts: [
+        {
+          store_id: storeId || 'store1',
+          store_name: 'デモ店舗12',
+          shifts: [
+            {
+              id: 1,
+              girl_id: 1,
+              girl_name: 'アリス',
+              start_time: '18:00',
+              end_time: '22:00',
+              shift_type: 'normal' as const,
+              notes: '',
+              store_id: storeId || 'store1',
+              date
+            },
+            {
+              id: 2,
+              girl_id: 2,
+              girl_name: 'ベル',
+              start_time: '19:00',
+              end_time: '23:00',
+              shift_type: 'special' as const,
+              notes: '特別シフト',
+              store_id: storeId || 'store1',
+              date
+            }
+          ]
+        }
+      ]
+    }
+  },
+  getStoreShifts: async (storeId: string, days: number = 7, startDate?: string) => {
+    return {
+      store_id: storeId,
+      store_name: 'デモ店舗',
+      days_data: Array.from({ length: days }, (_, i) => {
+        const date = new Date()
+        date.setDate(date.getDate() + i)
+        return {
+          date: date.toISOString().split('T')[0],
+          shifts: [
+            {
+              id: i + 1,
+              girl_id: 1,
+              girl_name: 'アリス',
+              start_time: '18:00',
+              end_time: '22:00',
+              shift_type: 'normal' as const,
+              notes: '',
+              store_id: storeId,
+              date: date.toISOString().split('T')[0]
+            }
+          ]
+        }
+      })
+    }
+  },
+  search: async (params: any) => {
+    return [
+      {
+        id: 1,
+        girl_id: 1,
+        girl_name: '検索結果',
+        start_time: '18:00',
+        end_time: '22:00',
+        shift_type: 'normal' as const,
+        notes: '',
+        store_id: 'store1',
+        date: '2024-01-15'
+      }
+    ]
+  }
+}
 import type { DayShifts, StoreShiftsDetail, Shift } from '@/types/api'
 
 /**

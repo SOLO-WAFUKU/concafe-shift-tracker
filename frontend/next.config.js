@@ -46,6 +46,10 @@ const nextConfig = {
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "img-src 'self' data: https: http:; default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
           }
         ]
       }

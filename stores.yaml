@@ -1,0 +1,51 @@
+stores:
+  - id: "maidreamin-akiba"
+    name: "めいどりーみん 秋葉原本店"
+    url: "https://maidreamin.com/schedule/"
+    area: "秋葉原"
+    open_time: "11:00"
+    close_time: "22:00"
+    closed_days: []
+    selectors:
+      schedule_container: ".schedule-list"
+      girl_name: ".girl-name"
+      girl_image: ".girl-photo img"
+      shift_time: ".shift-time"
+      date_section: ".schedule-date"
+    scraping_config:
+      wait_time: 2000
+      scroll_to_bottom: true
+      
+  - id: "hanagatami-akiba"
+    name: "花魁茶屋 秋葉原店"
+    url: "https://hanagatami.jp/akihabara/schedule/"
+    area: "秋葉原"
+    open_time: "17:00"
+    close_time: "23:00"
+    closed_days: ["monday"]
+    selectors:
+      schedule_container: ".schedule-wrapper"
+      girl_name: ".cast-name"
+      girl_image: ".cast-image img"
+      shift_time: ".work-time"
+      date_section: ".date-header"
+    scraping_config:
+      wait_time: 3000
+      scroll_to_bottom: false
+      
+  - id: "cure-maid-akiba"
+    name: "CURE MAID CAFE"
+    url: "https://www.curemaid.jp/schedule/"
+    area: "秋葉原"
+    open_time: "11:30"
+    close_time: "20:00"
+    closed_days: []
+    selectors:
+      schedule_container: ".schedule-table"
+      girl_name: ".maid-name"
+      girl_image: ".maid-photo img"
+      shift_time: ".time-slot"
+      date_section: ".schedule-date"
+    scraping_config:
+      wait_time: 1500
+      scroll_to_bottom: true

@@ -28,7 +28,7 @@ import {
 import { Clock, Calendar, Star } from 'lucide-react'
 // Local utility functions (replaced @/lib/utils)
 const optimizeImageUrl = (url?: string, width?: number) => {
-  if (!url) return 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face'
+  if (!url) return 'https://via.placeholder.com/400x500/f0f0f0/666666?text=No+Image'
   // In a real app, this would optimize the image URL
   return url
 }
@@ -172,14 +172,18 @@ export const GirlCard: React.FC<GirlCardProps> = ({
 
         {/* 画像部分 */}
         <Box position="relative">
-          <Image
+          <Box
+            as="img"
             src={optimizeImageUrl(girl.image_url, compact ? 200 : 280)}
             alt={girl.name}
             w="full"
             h={compact ? "160px" : "200px"}
             objectFit="cover"
-            fallbackSrc="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
             loading="lazy"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://via.placeholder.com/400x500/f0f0f0/666666?text=No+Image';
+            }}
           />
           
           {/* グラデーション オーバーレイ */}
@@ -299,14 +303,18 @@ const GirlDetailModal: React.FC<{
             <VStack spacing={4} align="stretch">
               {/* 基本情報 */}
               <HStack spacing={4}>
-                <Image
+                <Box
+                  as="img"
                   src={optimizeImageUrl(girlDetail.image_url, 150)}
                   alt={girlDetail.name}
                   w="100px"
                   h="120px"
                   objectFit="cover"
                   borderRadius="md"
-                  fallbackSrc="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://via.placeholder.com/150x180/f0f0f0/666666?text=No+Image';
+                  }}
                 />
                 <VStack align="start" spacing={2}>
                   <HStack>
@@ -390,14 +398,18 @@ export const SimpleGirlCard: React.FC<{
 
   return (
     <HStack spacing={3} p={3} bg="white" borderRadius="md" shadow="sm">
-      <Image
+      <Box
+        as="img"
         src={optimizeImageUrl(girl.image_url, 60)}
         alt={girl.name}
         w="40px"
         h="50px"
         objectFit="cover"
         borderRadius="sm"
-        fallbackSrc="/images/placeholder-girl.jpg"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.src = 'https://via.placeholder.com/60x75/f0f0f0/666666?text=?';
+        }}
       />
       <VStack align="start" spacing={1} flex={1}>
         <HStack>

@@ -4,7 +4,6 @@
  */
 
 import React from 'react'
-import Image from 'next/image'
 import {
   Box,
   Text,
@@ -26,15 +25,7 @@ import {
   Tooltip
 } from '@chakra-ui/react'
 import { Clock, Calendar, Star } from 'lucide-react'
-import { getImageUrl } from '@/utils/imageUtils'
 // Local utility functions (replaced @/lib/utils)
-const optimizeImageUrl = (url?: string, width?: number) => {
-  if (!url) return 'https://via.placeholder.com/400x500/f0f0f0/666666?text=No+Image'
-  // If it's already a data URI, return as-is
-  if (url.startsWith('data:')) return url
-  // In a real app, this would optimize the image URL
-  return url
-}
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -175,11 +166,12 @@ export const GirlCard: React.FC<GirlCardProps> = ({
 
         {/* 画像部分 */}
         <Box position="relative" w="full" h={compact ? "160px" : "200px"}>
-          <Image
-            src={getImageUrl(girl.image_url, girl.name, shift?.start_time, girl.status)}
+          <img
+            src={girl.image_url}
             alt={girl.name}
-            fill
             style={{ 
+              width: '100%',
+              height: '100%',
               objectFit: 'cover',
               backgroundColor: '#f0f0f0',
               border: '1px solid #ddd'
@@ -192,8 +184,6 @@ export const GirlCard: React.FC<GirlCardProps> = ({
             onLoad={() => {
               console.log('Image loaded successfully:', girl.image_url);
             }}
-            unoptimized
-            priority
           />
           
           {/* グラデーション オーバーレイ */}
@@ -314,16 +304,18 @@ const GirlDetailModal: React.FC<{
               {/* 基本情報 */}
               <HStack spacing={4}>
                 <Box position="relative" w="100px" h="120px" borderRadius="md" overflow="hidden">
-                  <Image
-                    src={optimizeImageUrl(girlDetail.image_url, 150)}
+                  <img
+                    src={girlDetail.image_url}
                     alt={girlDetail.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover' 
+                    }}
                     onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                       const target = e.target as HTMLImageElement;
                       target.src = 'https://via.placeholder.com/150x180/f0f0f0/666666?text=No+Image';
                     }}
-                    unoptimized
                   />
                 </Box>
                 <VStack align="start" spacing={2}>
@@ -409,16 +401,18 @@ export const SimpleGirlCard: React.FC<{
   return (
     <HStack spacing={3} p={3} bg="white" borderRadius="md" shadow="sm">
       <Box position="relative" w="40px" h="50px" borderRadius="sm" overflow="hidden">
-        <Image
-          src={optimizeImageUrl(girl.image_url, 60)}
+        <img
+          src={girl.image_url}
           alt={girl.name}
-          fill
-          style={{ objectFit: 'cover' }}
+          style={{ 
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover' 
+          }}
           onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
             const target = e.target as HTMLImageElement;
             target.src = 'https://via.placeholder.com/60x75/f0f0f0/666666?text=?';
           }}
-          unoptimized
         />
       </Box>
       <VStack align="start" spacing={1} flex={1}>

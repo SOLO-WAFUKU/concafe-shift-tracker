@@ -55,14 +55,14 @@ const demoStores = [
     name: "クイーンズコート",
     area: "秋葉原",
     girls_count: 20,
-    url: "https://queens-court.jp/"
+    url: "https://www.queenscourt.tv/"
   },
   {
     id: "lilian-prian-akiba",
     name: "リリアンプリアン",
     area: "秋葉原",
     girls_count: 14,
-    url: "https://lilianprian.com/"
+    url: "https://lilian-plian.com/"
   }
 ]
 
@@ -73,17 +73,23 @@ const demoGirls = [
   { id: 4, name: "ゆき", status: "active", profileUrl: "https://www.cafe-athome.com/", store: "あっとほぉーむカフェ" },
   { id: 5, name: "さくら", status: "new", profileUrl: "https://www.curemaid.jp/", store: "キュアメイドカフェ" },
   { id: 6, name: "あいか", status: "active", profileUrl: "https://www.curemaid.jp/", store: "キュアメイドカフェ" },
-  { id: 7, name: "みらい", status: "active", profileUrl: "https://made-maid.com/", store: "MAID MADE" },
-  { id: 8, name: "ひなた", status: "new", profileUrl: "https://made-maid.com/", store: "MAID MADE" },
-  { id: 9, name: "れいな", status: "active", profileUrl: "https://queens-court.jp/", store: "クイーンズコート" },
-  { id: 10, name: "かのん", status: "active", profileUrl: "https://queens-court.jp/", store: "クイーンズコート" },
-  { id: 11, name: "ゆめ", status: "new", profileUrl: "https://lilianprian.com/", store: "リリアンプリアン" },
-  { id: 12, name: "きらり", status: "active", profileUrl: "https://lilianprian.com/", store: "リリアンプリアン" },
+  { id: 7, name: "みらい", status: "active", profileUrl: "https://made-maid.com/staff", store: "MAID MADE" },
+  { id: 8, name: "ひなた", status: "new", profileUrl: "https://made-maid.com/staff", store: "MAID MADE" },
+  { id: 9, name: "れいな", status: "active", profileUrl: "https://www.queenscourt.tv/maid", store: "クイーンズコート" },
+  { id: 10, name: "かのん", status: "active", profileUrl: "https://www.queenscourt.tv/maid", store: "クイーンズコート" },
+  { id: 11, name: "ゆめ", status: "new", profileUrl: "https://lilian-plian.com/", store: "リリアンプリアン" },
+  { id: 12, name: "きらり", status: "active", profileUrl: "https://lilian-plian.com/", store: "リリアンプリアン" },
 ]
 
 export default function DemoPage() {
   const bg = useColorModeValue('gray.50', 'gray.900')
   const cardBg = useColorModeValue('white', 'gray.800')
+  
+  // 店舗ごとにキャストをグループ化
+  const girlsByStore = demoStores.map(store => ({
+    ...store,
+    girls: demoGirls.filter(girl => girl.store === store.name)
+  }))
 
   return (
     <Box minH="100vh" bg={bg}>
@@ -169,13 +175,15 @@ export default function DemoPage() {
             ))}
           </SimpleGrid>
 
-          {/* 嬢カード一覧 */}
-          <Box>
-            <Heading size="md" mb={4} color="gray.700">
-              本日の出勤嬢
-            </Heading>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
-              {demoGirls.map((girl) => (
+          {/* 店舗別出勤嬢一覧 */}
+          <VStack spacing={8} align="stretch">
+            {girlsByStore.map((store) => (
+              <Box key={store.id}>
+                <Heading size="md" mb={4} color="gray.700">
+                  {store.name} - 本日の出勤嬢 ({store.girls.length}名)
+                </Heading>
+                <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
+                  {store.girls.map((girl) => (
                 <Card 
                   key={girl.id} 
                   bg={cardBg} 
@@ -255,9 +263,11 @@ export default function DemoPage() {
                     </VStack>
                   </CardBody>
                 </Card>
-              ))}
-            </SimpleGrid>
-          </Box>
+                  ))}
+                </SimpleGrid>
+              </Box>
+            ))}
+          </VStack>
 
           {/* 統計 */}
           <Card bg={cardBg}>

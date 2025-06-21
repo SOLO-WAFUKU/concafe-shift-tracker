@@ -12,7 +12,7 @@ const girlApi = {
       {
         id: 1,
         name: 'アリス',
-        image_url: '/images/placeholder-girl.jpg',
+        image_url: 'https://images.unsplash.com/photo-1494790108755-2616b9997c74?w=400&h=500&fit=crop&crop=face',
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -21,7 +21,7 @@ const girlApi = {
       {
         id: 2,
         name: 'ベル',
-        image_url: '/images/placeholder-girl.jpg',
+        image_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face',
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -30,7 +30,7 @@ const girlApi = {
       {
         id: 3,
         name: 'シンデレラ',
-        image_url: '/images/placeholder-girl.jpg',
+        image_url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=500&fit=crop&crop=face',
         status: 'active' as const,
         store_id: 'store2',
         first_seen: new Date().toISOString(),
@@ -42,7 +42,7 @@ const girlApi = {
     return {
       id: girlId,
       name: 'デモ嬢',
-      image_url: '/images/placeholder-girl.jpg',
+      image_url: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=500&fit=crop&crop=face',
       status: 'active' as const,
       store_id: 'store1',
       first_seen: new Date().toISOString(),
@@ -79,7 +79,7 @@ const girlApi = {
       {
         id: 1,
         name: '検索結果',
-        image_url: '/images/placeholder-girl.jpg',
+        image_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop&crop=face',
         status: 'active' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),
@@ -92,7 +92,7 @@ const girlApi = {
       {
         id: 4,
         name: '新人ちゃん',
-        image_url: '/images/placeholder-girl.jpg',
+        image_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face',
         status: 'new' as const,
         store_id: 'store1',
         first_seen: new Date().toISOString(),

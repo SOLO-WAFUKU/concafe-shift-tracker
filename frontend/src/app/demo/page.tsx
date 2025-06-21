@@ -26,29 +26,32 @@ const demoStores = [
     id: "maidreamin-akiba",
     name: "めいどりーみん 秋葉原本店",
     area: "秋葉原",
-    girls_count: 12
+    girls_count: 12,
+    url: "https://maidreamin.com/"
   },
   {
     id: "hanagatami-akiba", 
     name: "花魁茶屋 秋葉原店",
     area: "秋葉原",
-    girls_count: 8
+    girls_count: 8,
+    url: "https://www.cafe-athome.com/"
   },
   {
     id: "cure-maid-akiba",
     name: "CURE MAID CAFE",
     area: "秋葉原", 
-    girls_count: 15
+    girls_count: 15,
+    url: "https://curemaid.jp/"
   }
 ]
 
 const demoGirls = [
-  { id: 1, name: "ゆめか", status: "active" },
-  { id: 2, name: "ひまり", status: "new" },
-  { id: 3, name: "あかね", status: "active" },
-  { id: 4, name: "みお", status: "active" },
-  { id: 5, name: "さくら", status: "new" },
-  { id: 6, name: "りん", status: "active" },
+  { id: 1, name: "ゆめか", status: "active", storeUrl: "https://maidreamin.com/" },
+  { id: 2, name: "ひまり", status: "new", storeUrl: "https://maidreamin.com/" },
+  { id: 3, name: "あかね", status: "active", storeUrl: "https://www.cafe-athome.com/" },
+  { id: 4, name: "みお", status: "active", storeUrl: "https://www.cafe-athome.com/" },
+  { id: 5, name: "さくら", status: "new", storeUrl: "https://curemaid.jp/" },
+  { id: 6, name: "りん", status: "active", storeUrl: "https://curemaid.jp/" },
 ]
 
 export default function DemoPage() {
@@ -74,7 +77,14 @@ export default function DemoPage() {
                 DEMO
               </Badge>
             </HStack>
-            <Button colorScheme="pink" size="sm">
+            <Button 
+              colorScheme="pink" 
+              size="sm"
+              as="a"
+              href="https://github.com/SOLO-WAFUKU/concafe-shift-tracker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               管理者
             </Button>
           </HStack>
@@ -107,7 +117,17 @@ export default function DemoPage() {
           {/* 店舗統計 */}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
             {demoStores.map((store) => (
-              <Card key={store.id} bg={cardBg}>
+              <Card 
+                key={store.id} 
+                bg={cardBg}
+                cursor="pointer"
+                _hover={{ shadow: "lg", transform: "translateY(-2px)" }}
+                transition="all 0.2s"
+                as="a"
+                href={store.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <CardBody>
                   <VStack spacing={2}>
                     <Text fontSize="md" fontWeight="semibold">
@@ -129,7 +149,19 @@ export default function DemoPage() {
             </Heading>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
               {demoGirls.map((girl) => (
-                <Card key={girl.id} bg={cardBg} overflow="hidden" position="relative" cursor="pointer" _hover={{ shadow: "lg", transform: "translateY(-2px)" }} transition="all 0.2s">
+                <Card 
+                  key={girl.id} 
+                  bg={cardBg} 
+                  overflow="hidden" 
+                  position="relative" 
+                  cursor="pointer" 
+                  _hover={{ shadow: "lg", transform: "translateY(-2px)" }} 
+                  transition="all 0.2s"
+                  as="a"
+                  href={girl.storeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {/* ステータスバッジ */}
                   {girl.status === 'new' && (
                     <Badge

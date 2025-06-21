@@ -167,7 +167,7 @@ export const GirlCard: React.FC<GirlCardProps> = ({
         {/* 画像部分 */}
         <Box position="relative" w="full" h={compact ? "160px" : "200px"}>
           <img
-            src={girl.image_url}
+            src="https://picsum.photos/400/500?random=1"
             alt={girl.name}
             style={{ 
               width: '100%',
@@ -177,12 +177,12 @@ export const GirlCard: React.FC<GirlCardProps> = ({
               border: '1px solid #ddd'
             }}
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-              console.log('Image failed to load:', girl.image_url);
+              console.log('Image failed to load - using fallback');
               const target = e.target as HTMLImageElement;
               target.src = `https://via.placeholder.com/400x500/ff69b4/ffffff?text=${encodeURIComponent(girl.name)}`;
             }}
             onLoad={() => {
-              console.log('Image loaded successfully:', girl.image_url);
+              console.log('Image loaded successfully');
             }}
           />
           

@@ -6,7 +6,7 @@
 import { useQuery, useInfiniteQuery } from '@tanstack/react-query'
 // Mock API for demo purposes (replaced @/lib/api)
 const girlApi = {
-  getAll: async (params?: any) => {
+  getAll: async (params?: any): Promise<Girl[]> => {
     // Mock data for demo
     return [
       {
@@ -14,40 +14,66 @@ const girlApi = {
         name: 'アリス',
         image_url: '/images/placeholder-girl.jpg',
         status: 'active' as const,
-        store_id: 'store1'
+        store_id: 'store1',
+        first_seen: new Date().toISOString(),
+        last_seen: new Date().toISOString()
       },
       {
         id: 2,
         name: 'ベル',
         image_url: '/images/placeholder-girl.jpg',
         status: 'new' as const,
-        store_id: 'store1'
+        store_id: 'store1',
+        first_seen: new Date().toISOString(),
+        last_seen: new Date().toISOString()
       },
       {
         id: 3,
         name: 'シンデレラ',
         image_url: '/images/placeholder-girl.jpg',
         status: 'active' as const,
-        store_id: 'store2'
+        store_id: 'store2',
+        first_seen: new Date().toISOString(),
+        last_seen: new Date().toISOString()
       }
     ]
   },
-  getDetail: async (girlId: number) => {
+  getDetail: async (girlId: number): Promise<GirlDetail> => {
     return {
       id: girlId,
       name: 'デモ嬢',
       image_url: '/images/placeholder-girl.jpg',
       status: 'active' as const,
       store_id: 'store1',
+      first_seen: new Date().toISOString(),
+      last_seen: new Date().toISOString(),
       work_days_count: 15,
       favorite_time_slots: ['夜間', '午後'],
       recent_shifts: [
-        { id: 1, date: '2024-01-15', start_time: '18:00', end_time: '22:00' },
-        { id: 2, date: '2024-01-14', start_time: '19:00', end_time: '23:00' }
+        { 
+          id: 1, 
+          store_id: 'store1',
+          girl_id: girlId,
+          girl_name: 'デモ嬢',
+          date: '2024-01-15', 
+          start_time: '18:00', 
+          end_time: '22:00',
+          shift_type: 'normal'
+        },
+        { 
+          id: 2, 
+          store_id: 'store1',
+          girl_id: girlId,
+          girl_name: 'デモ嬢',
+          date: '2024-01-14', 
+          start_time: '19:00', 
+          end_time: '23:00',
+          shift_type: 'normal'
+        }
       ]
     }
   },
-  search: async (params: any) => {
+  search: async (params: any): Promise<Girl[]> => {
     // Return filtered mock data
     return [
       {
@@ -55,18 +81,22 @@ const girlApi = {
         name: '検索結果',
         image_url: '/images/placeholder-girl.jpg',
         status: 'active' as const,
-        store_id: 'store1'
+        store_id: 'store1',
+        first_seen: new Date().toISOString(),
+        last_seen: new Date().toISOString()
       }
     ]
   },
-  getNewToday: async () => {
+  getNewToday: async (): Promise<Girl[]> => {
     return [
       {
         id: 4,
         name: '新人ちゃん',
         image_url: '/images/placeholder-girl.jpg',
         status: 'new' as const,
-        store_id: 'store1'
+        store_id: 'store1',
+        first_seen: new Date().toISOString(),
+        last_seen: new Date().toISOString()
       }
     ]
   }

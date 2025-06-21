@@ -42,16 +42,43 @@ const demoStores = [
     area: "秋葉原", 
     girls_count: 15,
     url: "https://www.curemaid.jp/"
+  },
+  {
+    id: "maidmade-akiba",
+    name: "MAID MADE",
+    area: "秋葉原",
+    girls_count: 18,
+    url: "https://made-maid.com/"
+  },
+  {
+    id: "queens-court-akiba",
+    name: "クイーンズコート",
+    area: "秋葉原",
+    girls_count: 20,
+    url: "https://queens-court.jp/"
+  },
+  {
+    id: "lilian-prian-akiba",
+    name: "リリアンプリアン",
+    area: "秋葉原",
+    girls_count: 14,
+    url: "https://lilianprian.com/"
   }
 ]
 
 const demoGirls = [
-  { id: 1, name: "まりる", status: "active", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=4", store: "めいどりーみん 秋葉原 アイドル通り店" },
-  { id: 2, name: "ちう", status: "new", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=545", store: "めいどりーみん" },
+  { id: 1, name: "まりる", status: "active", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=4", store: "めいどりーみん 秋葉原 本店" },
+  { id: 2, name: "ちう", status: "new", profileUrl: "https://maidreamin.com/cast/maid/detail.html?id=545", store: "めいどりーみん 秋葉原 本店" },
   { id: 3, name: "みお", status: "active", profileUrl: "https://www.cafe-athome.com/", store: "あっとほぉーむカフェ" },
   { id: 4, name: "ゆき", status: "active", profileUrl: "https://www.cafe-athome.com/", store: "あっとほぉーむカフェ" },
   { id: 5, name: "さくら", status: "new", profileUrl: "https://www.curemaid.jp/", store: "キュアメイドカフェ" },
   { id: 6, name: "あいか", status: "active", profileUrl: "https://www.curemaid.jp/", store: "キュアメイドカフェ" },
+  { id: 7, name: "みらい", status: "active", profileUrl: "https://made-maid.com/", store: "MAID MADE" },
+  { id: 8, name: "ひなた", status: "new", profileUrl: "https://made-maid.com/", store: "MAID MADE" },
+  { id: 9, name: "れいな", status: "active", profileUrl: "https://queens-court.jp/", store: "クイーンズコート" },
+  { id: 10, name: "かのん", status: "active", profileUrl: "https://queens-court.jp/", store: "クイーンズコート" },
+  { id: 11, name: "ゆめ", status: "new", profileUrl: "https://lilianprian.com/", store: "リリアンプリアン" },
+  { id: 12, name: "きらり", status: "active", profileUrl: "https://lilianprian.com/", store: "リリアンプリアン" },
 ]
 
 export default function DemoPage() {

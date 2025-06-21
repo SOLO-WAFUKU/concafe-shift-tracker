@@ -28,7 +28,7 @@ import {
 import { Clock, Calendar, Star } from 'lucide-react'
 // Local utility functions (replaced @/lib/utils)
 const optimizeImageUrl = (url?: string, width?: number) => {
-  if (!url) return '/images/placeholder-girl.jpg'
+  if (!url) return 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face'
   // In a real app, this would optimize the image URL
   return url
 }
@@ -178,7 +178,7 @@ export const GirlCard: React.FC<GirlCardProps> = ({
             w="full"
             h={compact ? "160px" : "200px"}
             objectFit="cover"
-            fallbackSrc="/images/placeholder-girl.jpg"
+            fallbackSrc="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
             loading="lazy"
           />
           
@@ -306,7 +306,7 @@ const GirlDetailModal: React.FC<{
                   h="120px"
                   objectFit="cover"
                   borderRadius="md"
-                  fallbackSrc="/images/placeholder-girl.jpg"
+                  fallbackSrc="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
                 />
                 <VStack align="start" spacing={2}>
                   <HStack>

@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       'localhost',
       'imagedelivery.net', // Cloudflare Images
+      'images.unsplash.com', // Unsplash images for demo
       'maidreamin.com',
       'hanagatami.jp',
       'curemaid.jp'

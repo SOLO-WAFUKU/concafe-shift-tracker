@@ -115,6 +115,6 @@ export const useFilteredStores = (
 export const useStoreAreas = (stores: Store[] | undefined) => {
   if (!stores) return []
   
-  const areas = [...new Set(stores.map(store => store.area))]
+  const areas = Array.from(new Set(stores.map(store => store.area)))
   return areas.sort()
 }

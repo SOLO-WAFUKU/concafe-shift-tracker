@@ -239,8 +239,17 @@ export const getImageUrl = (
   time?: string,
   status?: 'active' | 'new' | 'left'
 ): string => {
+  console.log('getImageUrl called with:', { originalUrl, fallbackName })
+  
+  // 元のURLが有効な場合は直接使用（テスト用）
+  if (originalUrl && originalUrl.includes('picsum.photos')) {
+    console.log('Using picsum URL directly:', originalUrl)
+    return originalUrl
+  }
+  
   // 元のURLが有効な場合はプロキシ経由で使用
-  if (originalUrl && !originalUrl.includes('placeholder') && !originalUrl.includes('picsum') && !originalUrl.startsWith('data:')) {
+  if (originalUrl && !originalUrl.includes('placeholder') && !originalUrl.startsWith('data:')) {
+    console.log('Using proxied URL:', originalUrl)
     return getProxiedImageUrl(originalUrl)
   }
   
@@ -248,6 +257,7 @@ export const getImageUrl = (
   if (fallbackName && fallbackName !== '？' && fallbackName !== 'No Image') {
     try {
       const aiImageUrl = getHighQualityAIPortrait(fallbackName)
+      console.log('Using AI portrait URL:', aiImageUrl)
       return getProxiedImageUrl(aiImageUrl)
     } catch (error) {
       console.warn('Failed to get AI portrait, falling back to generated avatar')
@@ -256,10 +266,12 @@ export const getImageUrl = (
   
   // フォールバック: 動的SVGを生成
   if (fallbackName) {
+    console.log('Using dynamic avatar for:', fallbackName)
     return generateDynamicAvatar(fallbackName, time, status)
   }
   
   // 最終フォールバック
+  console.log('Using final fallback')
   return generateDynamicAvatar('？', time, status)
 }
 

@@ -25,7 +25,7 @@ import {
   Icon,
   Tooltip
 } from '@chakra-ui/react'
-import { TimeIcon, CalendarIcon, StarIcon } from '@chakra-ui/icons'
+import { Clock, Calendar, Star } from 'lucide-react'
 // Local utility functions (replaced @/lib/utils)
 const optimizeImageUrl = (url?: string, width?: number) => {
   if (!url) return '/images/placeholder-girl.jpg'
@@ -250,7 +250,7 @@ const ShiftInfo: React.FC<{
   return (
     <VStack spacing={1}>
       <HStack spacing={2} justify="center">
-        <Icon as={TimeIcon} color="gray.500" boxSize={3} />
+        <Clock size={12} color="gray" />
         <Text fontSize={compact ? "xs" : "sm"} color="gray.700">
           {formatTime(shift.start_time)} - {formatTime(shift.end_time)}
         </Text>

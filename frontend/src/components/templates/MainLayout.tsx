@@ -27,7 +27,7 @@ import {
   DrawerCloseButton,
   useBreakpointValue
 } from '@chakra-ui/react'
-import { HamburgerIcon, MoonIcon, SunIcon, SettingsIcon, SearchIcon } from '@chakra-ui/icons'
+import { Menu, Moon, Sun, Settings, Search } from 'lucide-react'
 import { useNewGirlsToday } from '@/hooks/useGirls'
 import { useRouter } from 'next/navigation'
 
@@ -138,7 +138,7 @@ const Header: React.FC<{
           {showMenuButton && (
             <IconButton
               size="md"
-              icon={<HamburgerIcon />}
+              icon={<Menu size={18} />}
               aria-label="メニューを開く"
               onClick={onMenuClick}
               mr={4}
@@ -196,7 +196,7 @@ const Header: React.FC<{
             <IconButton
               size="sm"
               variant="ghost"
-              icon={<SettingsIcon />}
+              icon={<Settings size={16} />}
               aria-label="管理者ページ"
               onClick={() => router.push('/admin')}
             />
@@ -205,7 +205,7 @@ const Header: React.FC<{
             <IconButton
               size="sm"
               variant="ghost"
-              icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              icon={colorMode === 'light' ? <Moon size={16} /> : <Sun size={16} />}
               aria-label="ダークモード切替"
               onClick={onColorModeToggle}
             />

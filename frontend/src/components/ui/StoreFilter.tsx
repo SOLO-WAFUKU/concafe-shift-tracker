@@ -21,7 +21,7 @@ import {
   InputGroup,
   InputLeftElement
 } from '@chakra-ui/react'
-import { ChevronDownIcon, ChevronUpIcon, SearchIcon } from '@chakra-ui/icons'
+import { ChevronDown, ChevronUp, Search } from 'lucide-react'
 import { useStores, useFilteredStores } from '@/hooks/useStores'
 import type { Store } from '@/types/api'
 
@@ -91,7 +91,7 @@ export const StoreFilter: React.FC<StoreFilterProps> = ({
       </Text>
       {compact && (
         <Button size="xs" variant="ghost" onClick={onToggle}>
-          <Icon as={isOpen ? ChevronUpIcon : ChevronDownIcon} />
+          {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         </Button>
       )}
     </HStack>
@@ -102,7 +102,7 @@ export const StoreFilter: React.FC<StoreFilterProps> = ({
       {/* 検索ボックス */}
       <InputGroup size="sm">
         <InputLeftElement pointerEvents="none">
-          <Icon as={SearchIcon} color="gray.400" />
+          <Search size={16} color="gray" />
         </InputLeftElement>
         <Input
           placeholder="店舗名で検索..."

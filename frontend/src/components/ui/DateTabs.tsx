@@ -14,7 +14,7 @@ import {
   Button,
   Icon
 } from '@chakra-ui/react'
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 // Local utility functions (replaced @/lib/utils)
 const getDateLabel = (date: string) => {
   const today = new Date()
@@ -107,7 +107,7 @@ export const DateTabs: React.FC<DateTabsProps> = ({
           variant="ghost"
           onClick={goToPreviousDay}
           isDisabled={selectedIndex === 0}
-          leftIcon={<Icon as={ChevronLeftIcon} />}
+          leftIcon={<ChevronLeft size={16} />}
         >
           前日
         </Button>
@@ -127,7 +127,7 @@ export const DateTabs: React.FC<DateTabsProps> = ({
           variant="ghost"
           onClick={goToNextDay}
           isDisabled={selectedIndex === dates.length - 1}
-          rightIcon={<Icon as={ChevronRightIcon} />}
+          rightIcon={<ChevronRight size={16} />}
         >
           翌日
         </Button>

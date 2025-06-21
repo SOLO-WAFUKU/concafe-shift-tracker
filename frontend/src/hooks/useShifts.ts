@@ -7,34 +7,97 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 // Mock API for demo purposes (replaced @/lib/api)
 const shiftApi = {
   getByDate: async (date: string, storeId?: string) => {
-    // Mock data for demo
+    // Mock data for demo - matching DayShifts interface
     return {
       date,
-      store_shifts: [
+      total_girls: 6,
+      stores: [
         {
-          store_id: storeId || 'store1',
-          store_name: 'デモ店舗12',
+          store_id: 'store1',
+          store_name: 'めいどりーみん 秋葉原店',
           shifts: [
             {
               id: 1,
               girl_id: 1,
-              girl_name: 'アリス',
+              girl_name: 'みこち',
+              girl_image_url: '/images/demo-girl-1.jpg',
               start_time: '18:00',
               end_time: '22:00',
-              shift_type: 'normal' as const,
+              shift_type: 'normal',
               notes: '',
-              store_id: storeId || 'store1',
+              store_id: 'store1',
               date
             },
             {
               id: 2,
               girl_id: 2,
-              girl_name: 'ベル',
+              girl_name: 'ぺこら',
+              girl_image_url: '/images/demo-girl-2.jpg',
               start_time: '19:00',
               end_time: '23:00',
-              shift_type: 'special' as const,
+              shift_type: 'special',
               notes: '特別シフト',
-              store_id: storeId || 'store1',
+              store_id: 'store1',
+              date
+            }
+          ]
+        },
+        {
+          store_id: 'store2',
+          store_name: '@ほぉ〜むカフェ 本店',
+          shifts: [
+            {
+              id: 3,
+              girl_id: 3,
+              girl_name: 'あくあ',
+              girl_image_url: '/images/demo-girl-3.jpg',
+              start_time: '17:00',
+              end_time: '21:00',
+              shift_type: 'normal',
+              notes: '',
+              store_id: 'store2',
+              date
+            },
+            {
+              id: 4,
+              girl_id: 4,
+              girl_name: 'まりん',
+              girl_image_url: '/images/demo-girl-4.jpg',
+              start_time: '20:00',
+              end_time: '24:00',
+              shift_type: 'normal',
+              notes: '',
+              store_id: 'store2',
+              date
+            }
+          ]
+        },
+        {
+          store_id: 'store3',
+          store_name: 'Cafe Mai:lish',
+          shifts: [
+            {
+              id: 5,
+              girl_id: 5,
+              girl_name: 'のえる',
+              girl_image_url: '/images/demo-girl-5.jpg',
+              start_time: '16:00',
+              end_time: '20:00',
+              shift_type: 'normal',
+              notes: '',
+              store_id: 'store3',
+              date
+            },
+            {
+              id: 6,
+              girl_id: 6,
+              girl_name: 'ふぶき',
+              girl_image_url: '/images/demo-girl-6.jpg',
+              start_time: '21:00',
+              end_time: '25:00',
+              shift_type: 'special',
+              notes: '深夜シフト',
+              store_id: 'store3',
               date
             }
           ]

@@ -20,7 +20,13 @@ const shiftApi = {
               id: 1,
               girl_id: 1,
               girl_name: 'みこち',
-              girl_image_url: 'https://picsum.photos/400/500?random=1',
+              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#ff69b4"/>
+  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
+  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">みこち</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">19:00-22:00</text>
+</svg>`),
               start_time: '18:00',
               end_time: '22:00',
               shift_type: 'normal',
@@ -32,7 +38,13 @@ const shiftApi = {
               id: 2,
               girl_id: 2,
               girl_name: 'ぺこら',
-              girl_image_url: 'https://picsum.photos/400/500?random=2',
+              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#ff1493"/>
+  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
+  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">ぺこら</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">19:00-23:00</text>
+</svg>`),
               start_time: '19:00',
               end_time: '23:00',
               shift_type: 'special',
@@ -50,7 +62,13 @@ const shiftApi = {
               id: 3,
               girl_id: 3,
               girl_name: 'あくあ',
-              girl_image_url: 'https://picsum.photos/400/500?random=3',
+              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#00bfff"/>
+  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
+  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">あくあ</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">17:00-21:00</text>
+</svg>`),
               start_time: '17:00',
               end_time: '21:00',
               shift_type: 'normal',
@@ -62,7 +80,13 @@ const shiftApi = {
               id: 4,
               girl_id: 4,
               girl_name: 'まりん',
-              girl_image_url: 'https://picsum.photos/400/500?random=4',
+              girl_image_url: 'data:image/svg+xml;base64,' + btoa(`
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#ffa500"/>
+  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.8"/>
+  <text x="200" y="350" text-anchor="middle" font-family="Arial" font-size="24" fill="white" font-weight="bold">まりん</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="white">20:00-24:00</text>
+</svg>`),
               start_time: '20:00',
               end_time: '24:00',
               shift_type: 'normal',
